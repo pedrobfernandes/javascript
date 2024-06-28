@@ -1,0 +1,676 @@
+Técnologias usadas em criação de sites:
+
+  - HTML: Cuida do conteúdo. O texto, a formatação, coloca as tags imagens videos etc.
+
+  - CSS: Cuida da aparência, do design. Cores, bordas etc.
+
+  - JAVASCRIPT: Interatividade. Cuida de coisas como aumentar a imagem quando clicamos nela, mostrar tooltips ao passar o mouse
+                Validar dados antes de enviar para o backend, etc. Por exemplo, quando estamos em um site de imagens, o javascript faz
+                com que ao chegar no fim da página, mais imagens comecem a carregar de forma que não tenhamos que clicar para ir para
+                outra página, ou seja como se a pagina atual "não acabe".
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+- Para usar o javascript em um site(página), colocamos a tag <script></script> no final do body </body>.
+  Se o script não for interagir com elementos na página, podemos colocar dentro do <head></head>, mas normalmente
+  coloca-se antes do fechamento do </body>. Dessa forma, o script é carregado e executado já quando a página toda foi
+  carregada e seus elementos estão todos disponiveis.
+  Podemos criar o script dentro do html (ou seja dentro da tag <script>), ou podemos criar um arquivo externo,
+  com o nome terminado na extensão .js, e dentro da tag de abertura <script> colocar a propriedade src="", para informar onde
+  o script está. Exemplo: <script src="javascript/exemplo.js">.
+
+
+- O javascript é case sensitive ok. Pedro é diferente de pedro.
+
+- As novas versões do javascript, não exigem que a gente use ponto-virgula, (;). Podemos usar sem problema que não
+  dará erro, mas não émais exigido.
+
+
+- Node.js - O node ou nodejs,é um framework que possibilita usar javascript no lado do servidor (assim como no pc)
+  - Basicamente o nodejs possibiloita rodar javascript sem ser no navegador. O nodjs vem também com um gerenciador de pacotes.
+  que se chama npm (node package manager)
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+- COMANDOS:
+
+  - window.alert('Mensagem') - Mostra uma mensagem. Podemos colocar apenas alert() sem o window.
+    - Normalmente, quando mostramos mensagem, prompt etc, a mensagem ou prompt aparece na página antes do conteúdo
+    Ou seja, antes dos estilos textos etc. Este mostra a mensagem e um botão de Ok.
+
+  - window.confirm('Está gostando de Javascript? ') - Mostra um prompt de mensagem com um botão de ok (confirmar) e um de cancelar
+
+  - window.prompt('Qual é o seu nome? ') - Mostra um prompt com uma mensagem e uma caixa de entrada de dados. Para alem disso mostra o
+                                          botão de ok e de cancelar.
+
+  - document.write('texto') -> escreve o texto na tela (no browser, na página)
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+- VARIAVEIS E TIPOS PRIMITIVOS:
+
+
+  VARIAVEIS:
+
+  - No javascript declara-se variáveis usando um destes 3:
+
+    - var (o método antigo)
+    - let (o novo método)
+    - const (para constantes - valores que não vão mudar)
+
+  - O nome de cada variável, chama-se de identificador
+
+  - Variáveis (ou identificadores) podem começar com letra, $ ou _ (underline ou sublinhado..)
+
+  - Não pode começar com números
+
+  - Podemos usar números no nome (mas não no começo)
+
+  - Podemos usar acentos e simbolos (mas novamente não no começo)
+
+  - Não podem ter espaços (substituimos o espaço por _ por exemplo)
+
+  - Não pdem ser palavras reservadas do javascript
+
+
+  TIPOS PRIMITIVOS:
+
+    Estes são os três primordiais (ou principais)
+    - Number -> números decimais (1 -1 15 25) e números fracionarios (0.1 15.5 -12.85)
+    - String -> "Javascript", 'Javascript', `Javascript`, "1234", '1234', `1234`
+    - Bolean -> true, false
+
+    Outros tipos primitivos:
+
+      - Number tem mais dois valores internos: Infinity e NaN (Not a Number)
+      - null e undefined: null significa que foi atribuido valor á variável e que esse valor é nulo.
+        undefined, significa que não se definiu um tipo (ou valor)
+
+      - object: No jávascript (tal como o python), tudo é objeto
+
+      - array: O array é um object também
+
+      - function: no javascript function é também um tipo primitivo
+
+
+    - No javascript podemos usar o comando typeof, para descobrir o tipo de dado.
+    - Podemos usar de duas formas: typeof(valor) ou typeof valor
+    - Podemos usar literais com o typeof, assim: typeof 6, typeof 'Pedro' etc..
+
+    - O javascript decide qual o tipo de dado, por exemplo deque tipo é a variável n,
+      baseado no contexto do valor. Por exemplo: var n = 200; Aqui n é number
+      mas se depois eu fizer: n = 'Google'; agora o tipo de n passa a ser String
+
+
+
+  - VARIAVEIS COMPOSTAS (ARRAY/VETOR):
+
+
+    - Uma variável composta é uma variável que tem um nome, e vários valores. Ou seja, um array ou vetor:
+
+      - let fruits = ['Apple', 'Orange', 'Kiwi']
+
+      - Onde:
+
+        - fruits é o vetor ou array
+        - cada "pedaço", ou seja cada item até cada virgula  o elemento
+        - e cada elemento tem um indice ou chave e um valor:
+
+          - O indice aqui no exemplo é: fruits[0], fruits[1] etc. fruits[0] referece ao primeiro elementoque tem o valor Apple
+          - valor é o valor dentro do elemento (Apple, Orange ...)
+
+
+    - Para adicionar elementos no array, fazemos: fruits[3] = 'Pineapple'
+    - Aqui no exemplo, o array tem tres indices (0 - Apple, 1 - Orange, 2 - Kiwi)
+    - Mas quando especificamos um indice que nãoe existe, o javascript cria o indicie para nos e coloca o valor no indice.
+
+    - Esta é a forma explicita, ou seja dizemos exaamente a posição. Mas podemos simplesmente dizer qu queremos colocar no fim
+    sem sequer saber os indices que o array tem. Assim: fruits.push('Pineapple').
+    - Usamos a função ou método push(), que coloca o valor no final.
+
+    - Para saber o comprimento do array, ou seja quantos elementos ele tem: fruits.length. length não é metodo, é atributo.
+    - Atenção, que length retorna o número de elementos que o array (ou string etc) tem, não os indices, ou seja,
+    - No array de exemplo temos os indices 0 1 2 3 (isto são 4 indices, simplesmnete comecados por 0)
+    - length retorna-nos o valor 4.
+
+    - Para ordenar o array, temos o metodo sort(): fruits.sort().
+    - O sort por padrão ordena os numeros do menor para o maior, e strings da menor para a maior usandoa tabela ascii.
+
+    - Exemplo:
+
+      - let numbers = [8, 9, 1, 3]
+      - numbers.sort() -> fica [1, 3, 8, 9]
+
+      Para string:
+
+      -let words = ['Olá', 'Pedro', 'Muito']
+      - words.sort() -> fica: ['Muito', 'Olá', 'Pedro']
+
+      - Como funciona a ordenação de strings:
+
+        - A comparação é feita caractere a caratere. Então no exemplo, comparou-se o primeiro caractere de cara palavra, e no alfabeto, M vem antes de O e O vem antes
+        de P. Seo primeiro caractere de cada palavra for igual, a comparação usa o proximo caractere e por ai em diante até acharo que for maior e o que for menor.
+
+        - Atenção que na tabela ascii, o 'o' vem depois do 'O', então para o sort() o'O' é menor que o 'o'. O que isso quer dizer é isto:
+        - let words = ['olá', 'Olá']
+        - words.sort() -> vai ficar: ['Olá', 'olá']
+
+
+      - Tem formas e métodos de mudar e filtrar a ordenação tanto de numeros quanto de strings, mas não ensina no curso básico.
+
+
+      - Iterar pelo array. Tem varias formas , as mais básicas são o for tradicional e o for (value in array) {codigo}
+
+      - Pegar o indice de um elemento: array.indexOf(valor)
+
+      - Exemplo: words.indexOf('Pedro') -. retorna -> 1
+      - Se o valor não existe retorna valor -1
+      -Exemlo: word.indexOf('Sara') -> o valor Sara não tem no array, então retorna -1
+
+      - Arrays em javascript são heterogeneos, ou seja, podemos ter um array assim:
+
+      - [2, 'Pedro', true] etc..
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+
+- TRATAMENTO DE DADOS:
+
+
+  - Guardar o resultado de um prompt em uma variável:
+
+    var (ou let) number1 = window.prompt("Digite um número: ")
+
+  - Concatenar string: O sinal de mais (+) serve para adição, e para concatenar string. Exemplo:
+
+    var firstName = 'Pedro'
+    var lastName = 'Batista'
+    window.alert('Olá, seja bemvindo ' + firstName + ' ' + lastName + '!')
+
+    Regra para o sinal de +:
+
+     numero + numero > adição
+     string + string > concatenação
+
+   Temos que ter cuidado com o sinal de '+'. Por exemplo, o window.prompt() retorna sempre
+   uma string. Então, se fizermos por exemplo:
+
+    - var number1 = window.prompt('Digite o primeiro digito: ')
+    - var number2 = window.prompt('Digite o segundo digito: ')
+    - var result = number1 + number2
+    - window.alert('A soma dos dois números é: ' + result)
+
+    Isto vai dar errado. Supondo que o primeiro digito foi 2 e o segundo foi 4,
+    a mensagem vai mostrar: "A soma dos dois números é: 24"
+
+    Para resolver isso, fazemos a conversão de string para número. Temos duas formas:
+
+     - Number.parseInt(numero) para inteiros ou Number.parseFloat(numero) para flotuantes
+
+      Podemos colocar no prompt, assim: var number1 = Number.parseInt(window.prompt('Digite o primeiro digito: '))
+      O Number não é obrigatorio colocar, podemos colocar apenas parseInt ou parseFloat
+
+    Nas versões mais atuais do javascript, se colocarmos apenas Number(window.prompt(etctc)) o javascript converte
+    sosinho automaticamente, conforme o numero que digitarmos, ou seja, se digitar 2 ele usa parseInt, se digitar 2.5 ele
+    usa parseFloat. Mas atenção que o parseInt e parseFloat. são se tornaram obsoletos. Por exemplo, se quisermos forçar
+    o usuario adigitar um tipo especifico (int ou float), então temos que usar o parseInt ou o parseFloat.
+
+
+    - Podemos também converter numero para string. Temos duas formas também:
+
+      - String(valor)
+      - valor.toString()
+
+    - Uma forma melhor de compor e formatar strings, é usar as Templates Strings ao invéz de concatenação com o '+'.
+      Templates strings é fazer o uso da crase (``). O uso da crase tem a vantagem de fazer a interpolação nas variáveis,
+      ou seja, dentro da string (do texto) podemos escrever o nome da variável que ele será substituido. Se variável name é 'Pedro'
+      dentro do texto vai aparecer 'Pedro'.
+
+      A sintaxe é esta:
+
+        - var name  = 'Pedro'
+        - var age = 40
+        - var course = 'Javascript'
+
+        - window.alert(`${name} com idade de ${age} anos está aprendendo a programar em ${course}!`)
+        - Isto se vai traduzir em: "Pedro com idade de 40 anos está a prendendo a programar em Javascript!"
+        - A crase é a delimitação das templates strings. O ${} chama-se de placeholder
+
+
+    - Alguns métodos para string:
+
+      - string.length -> pega a quantidade de caracteres
+      - string.toUpperCase() -> converte para maiúsculas
+      - string.toLowerCase() ->  para minúsculas
+
+
+    - Converter numero para duas ou mais casas decimais:
+    - Por exemplo se fizer: var n1 = 1545.5, se quiser que fique com duas casa decimais,
+      podemos fazer assim: n1.toFixed(2) -> fica agora '1545.50'. Atenção que isto vai converter para string
+      então se quisermos que continue sendo número podemos fazer: Number(n1.toFixed(2)) e agora fica 1545.50 (sem aspas, sem string)
+
+    - Para trocar o ponto decimal por virgula:
+    - n1.tofixed(2).replace('.', ',') -> fica: '1545,50'
+
+    - Converter isto: 1545.50 para isto: R$ 1.545.50 ou seja em real (ou dolar etc):
+
+      - n1.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) Isto é uma parte mais avançada. Esteé apenas um "macete" passado na aula
+
+      - Traduzido o comando: toLocaleString() -> localiza a string, ou seja, usa o locale (en-us, pt-br etc).
+      - style: 'currency' -> o alvo, o que queremos formatar. Aqui queremos currency (estilizar monetario)
+      - currency: 'BRL' ->qual é a moeda
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+- OPERADORES:
+
+  - Aritméticos, Atribuição, Relacionais, Lógicos, Ternário (Tem mais, mas no curso básico so fala destes.)
+
+  - ARITMETICOS:
+
+    - + - * / % ** -> Operadores binários (são dois operandos um de cada lado)
+
+    - No javascript, a divisão / é real (5 / 2 == 2.5)
+
+    - O resto da divisão ( ou a divisão inteira) é % (5 % 2 == 1 -> resta 1)
+
+    - ** exponenciação (potencia) - (5 ** 2 == 25) - 5 * 5 == 25
+
+    - Precedencias da maior para a menor:
+
+      - () ** (*/% mesma precedencia) (+- mesma precedencia)
+      Dos que tem a mesma precedencia, se aparecerem na mesma conta, faz se da esquerda para a direita.
+
+
+  - RELACIONAIS:
+
+    - > < >= <= == != === !=== (o resultado é sempre booleano, exemplo: 5 > 3 == true)
+
+    - No javascript, os operadores == e != não testam tipos de dados. Eles testam se tem o mesmo valor ou não.
+    - Isso que dizer que este teste: 5 == '5' -> true. Pois mesmo um sendo numero e outro string, são ambos 5
+    - Da mesma forma 5 != '5' -> false
+
+    - Para testar tipos corretamente:
+    - 5 === '5' -> false
+    - 5 !=== '5' -> true
+    - Este dois operadores são conhecidos como operadoresde idendidade ou d eigualdade restrita
+    Eles testam se têm ou não o mesmo valor E o mesmo tipo
+
+
+    - ! -> negação, && -> conjunção (AND), || -> disjunção (OR)
+
+    - Se em uma expressão tiver operadores aritméticos relacionais e logicos juntos, assim:
+
+      - a > b && b % 2 == 0: -> primeiro trata-se dos operadores aritmeticos, depois dos relacionais (==) e depoisos lógicos
+
+      - entre os operadores logicos a precedencia é: ! (negação), && (and), || (or)
+
+
+    - OPERADOR TERNARIO:
+
+      - media >= 7.0 ? "Aprovado" : "Reprovado" -> faz o teste de se media é maior ou igual a 7.0. Se for mostra "Aprovado" senão for
+      mostra "Reprovado".
+
+      - O operador ternario é sempre o último a ser feito. Ou seja, acima, primeiro testamos se media é >= a 7.0 e so depois usamos
+      o ? ou :
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+  - DOCUMENT OBJECT MODEL (DOM):
+
+
+    - O DOM, é um conjunto de objetos dentro do navegador, que da acesso aos componentes
+    internos da página (do website)
+    - O DOM não funciona dentro do nodejs, apenas quando usamos o javascript dentro do
+    navegador
+
+
+    - ARVORE DOM:
+
+      - Quem está em baixo é child, quem está imediatamente acima é parent
+      - window (é a raiz da árvore)
+
+        - location (a url a pagina atual a anterior ),
+        - document (o documento atual ou a padina atual)
+        - history (guarda o historico de onde viemos para onde vamos no site)
+
+        Estes são filhos do window
+
+        - Dentro do document temos este filho:
+
+          - html. Dentro do html temos estes filhos:
+
+            - head e body
+
+            - Filhos de head:
+
+                - meta, title, link etc,
+
+
+            - Filhos de body:
+
+              - h1, h2.., p, div etc..
+
+              Dentro destes podemos ter filhos, por exemplo, um <p><strong></strong></p>
+              Aqui, <strong></strong> é filho (child) de <p></p>
+
+
+        - Podemos acessar os elementos html na página usando vários métodos.
+        Alguns deles:
+
+
+          - por TAG -> getElementsByTagName() -> plural, retorna-nos uma lista dos elementos com a a tag especificada. Para pegar um especifico
+            usamos [0] [1] etc
+
+            - Exemplo:
+              var paragraph1 = window.document.getElementsByTagName('p')[0] -> [0] é o paragrafo 1 (o primeiro) se tiver
+                                                                                2 ou mais paragrafos, o segundo é [1] etc.
+              window.document.write(`<br>${paragraph1.innerText}`) -> innerText é o texto (o conteudo) dentro do paragrafo
+
+              Usando o innerText, o conteudo aparece sem formatação, ou seja aparece apenas o texto normal, mas se uma palavra
+              no paragrafo por exemplo tiver cercada da tag <strong> por exemplo, a palavra não aparece em negrito (bold).
+              Para isso , usamos o innerHTML, assim mostra o conteudo e mantem toda a formatação dada ao elemento.
+
+              Podemos através da manipulação do DOM alterar propriedades dos elementos, por exemplo, usando o exemplo
+              de paragraph1, podemos fazer algo assim: paragraph1.style.color = 'pink' -> dá a cor rosa ao texto do paragrafo.
+
+
+          - por ID
+
+            - Exemplo:
+
+              Uma div assim: <div id="msg">
+              var div = document.getElementById('msg')
+
+              A partir daí, podemos inserir e mudar o que quisermos:
+
+                - div.innerText = 'Estou aguardando' -> troca o texto que está lá (se tiver algum)
+                por 'Estu aguardando'. Podemos mudar o fundo a cor do texto etct etc..
+
+
+          - por NOME
+
+            - Exemplo:
+
+              - <div name='msg'>
+              - document.getElementsByName('msg')[0] [1] etc etc
+
+          - por CLASSE
+
+            - Exemplo:
+
+              - <div class'msg'>
+              - document.getElementsByClassName('msg')[0] [1] etc etc
+
+          - por SELETOR (faz a seleção por elementos css)
+
+            Exemplo:
+
+              - querySelector() -> singular:
+
+                - <div id='msg'>
+                -document.querySelector('div#msg') -> pega a div que tem o id msg
+
+                - id -> representado por #
+                - classe -> representada por .
+
+
+
+    - EVENTOS DOM:
+
+      - Eventos DOM é tudo o que pode acontecer com um elemento na página. Por exemplo
+      um botão que é pressionado, e como resposta temos um código javascript que faz algo,
+      o mouse passa por cima de um elemento e o javasxript tem um código que aundo isso acontece,
+      mostra um tooltip por exemplo, etc etc etc..
+
+      - Alguns eventos:
+
+        - mouseenter -> o mouse entra em um elemento (uma div por exemplo)
+        - mousemove -> o mosue move-se dentro do elemento
+        - mousedown -> deu clique no mouse e segurou
+        - mouseup -> largou o botão do mouse
+        - mouseout -> move o mouse para fora do elemento
+        - click -> deu um clique no mouse (clique e largou)
+
+
+    - No javascript, os eventos são tratados usando funções, ou seja quando acontece exento x a função
+    y é acionada e o codigo dentro dela é executado.
+    O código dentro das funçoes são blocos de código e não são executados aotomaticamente.
+    Eles são executados quando a função é chamada.
+
+
+    - No javascript temos funções anonoimas, ou seja assim: function () {}.
+    - Mas para a função funcionar ao ser acionado o evento temos que dar
+    nome a função.
+
+    Formato da função para usar em eventos:
+
+      - function açao(parametros)
+        {
+          bloco de código
+        }
+
+      - Ou comoé mais comum:
+
+        - function açao(parametros) {
+            bloco de código
+          }
+
+      - Ação é o nome da função (colocamos ação aqui porque geralmente damos o nome á função
+      igual a aação que queremos executar)
+
+      - Parametros são valores e ou variáveis que passamos para a função executar
+      os calculos e processamentos. Parametros é opcional, depende do que queremos fazer.
+
+
+      - Podemos disparar a função (ou evento) de duas formas:
+
+        -1 - no html adicionamos o evento, assim por exemplo: <div id='area' onclick="click()">
+        Depois, dentro da tag <script></script>, colocamos a função: function click() {}
+
+
+        2 - Podemos adicionar um eventListener(), depois no arquivo javascript,ou nas tags <script> colocamos a função.
+          Assim: div.addEventListener('click', divClick) -> aqui, dizemos que o 'click'é o que vamos escutar e o divClik é a função a executar
+          Neste método não colocamos os parenteses () na frente do nome da função.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+  - CONDICOES:
+
+    -Condição simples é esta:
+      if (true)
+      {
+        bloco de codigo
+      }
+
+      Não tem else nem nada
+
+
+    - Condição composta é esta:
+
+      if (true)
+      {
+        bloco
+      }
+      else
+      {
+        bloco
+      }
+
+      - Condição aninhada é esta:
+
+        if (true)
+        {
+          bloco
+        }
+        else
+        {
+          if (true)
+          {
+            bloco
+          }
+          else
+          {
+            bloco
+          }
+        }
+
+        OU:
+
+        if (true)
+        {
+          bloco
+        }
+        else is (true)
+        {
+          bloco
+        }
+        else
+        {
+          bloco
+        }
+
+
+        Dica: Pegara hora atual do sistema:
+
+          - var now = new Date() -> cria um objeto Date
+          - var hour = now.getHours() -> pega a hora atual
+          Date() tem vários métodos..
+
+
+        -Condição multipla é esta: o switch case!!
+
+          - switch (expressao)
+          {
+            case valor 1:
+              bloco 1
+              break;
+
+            case valor 2:
+              bloco 2
+              break;
+
+            case ...
+              bloco ..
+              break;
+
+            default:
+              bloco default
+              break;
+          }
+
+          O default é opcional. É um "catch all" caso nenhuma
+          anterior tenha servido.
+
+
+-------------------------------------------------------------------------------------------------------------
+
+
+  - Carregar (ativar função ou outro código), quando a pagina carrega:
+
+    - <body onload="nome-função">
+
+  - Colocar imagem na página dinamicamente usando Javascript:
+
+    - var img = document.createElement('img')
+    - img.setAttribute('src', 'imagem')
+
+    - createElement() -> cria o elemento html especicficado, aqui foi <img>
+    mas pode ser <video> <p> etc
+    -setAttribute() -> configura atributo para o elemento,
+    aqui foi atributo src
+
+    - elemento.appendChild(img) -> permite colocar o elemento,
+    no caso img no final do elemento pai.exemplo:
+
+      - result.innerHTML = `Detectamos ${genre} com ${age} anos.` aqui coloca o texto dentro
+      do elemento referenciado or result (supunhamos que é um div).
+      - o appendChild(img) vai colocar a imagem dentro do div (o pai) depois do texto
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-FUNCOES:
+
+  - Funções são açoes executadas assim que são chamadas ou em decorrencia de algum evento
+  - Uma função pode receber parametros e retornar um resultado.
+
+  - A função pode também receber parametros opcionais ou predefinidos, assim
+
+    function sum(number1=1, number2)
+    {
+      return ...
+    }
+
+    - Isto diz que que se chamarmos a função assim: sum(2, 5), a função vai somar 2 + 5 e retornar (7)
+    - Se chamarmos apenas assim: sum(3), por exemplo, então o javascript vai ver que passamos apenas um parametro,
+    ai, ele ve que o primeiro parametro tem um valor padrão (number1=1), então ele dá o 3 ao number2, send assim
+    dentro da função ele faz return(1 +3) --> retorna 4
+
+    - No javascript podemos colocar uma função dentro de uma variável, ou seja, podemos fazer assim, por exemplo:
+
+      - let init = 2
+      - let value = function(init)
+      {
+          return init * 2
+      }
+
+      - Aqui, a variável value basicamente recebe 4 que é 2 (init) *2
+
+      - Outra sintaxe parecida é a da arrow function, que é assim:
+
+      - let value = (init) =>
+      {
+        return ...
+      }
+
+
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+- OBJETOS:
+
+
+  - em javascript objeto é uma variavel que guarda vários valores (como o array).
+  - Mas um objeto tem (ou pode ter) atritutos ou propriedades e funcionalidade (funções ou metodos)
+  - Exemplo de um objeto:
+
+  - let amigo =
+    {
+      nome: 'José',
+      sexo: 'M',
+      peso: 85.4,
+      engordar(p=1)
+      {
+        this.peso += 5
+      }
+    }
+
+  -Aqui, o objeto amigo tem os atributos nome (com valor Jose), sexo (com valor M)
+  - peso (com valor 85.4) e tem um método ou função ou ação engordar()
+
+
+  - Podemos acessar os atributos usando a notação de ponto (.). Exemplo:
+
+  - amigo.nome, amigo.sexo etc. por exemplo podemos imprimir:
+  - console.log(`${amigo.nome} pesa ${amigo.peso} kilos`)
+  - Iria mostrar: José pesa 85.4 kilos.
+
+  - se em algum momento chamarmos assim: amigo.engordar(5),
+  - a função iria incrementar o peso em 5 e jose passaria a ter 89.4 kilos..
+  - A palavra chave this dentro da função, é uma referencia ao objeto
+  - basicamente como o self no python.

@@ -1,0 +1,12 @@
+input,
+body {
+    font: normal 18px Roboto;
+}
+
+input {
+    width: 100px;
+}
+
+div#result {
+    margin-top: 20px;
+}
